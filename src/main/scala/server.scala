@@ -17,8 +17,8 @@ object server {
     // 送信先のroom id $ export ROOM_ID=YOUR_ROOM_ID
     val ROOM_ID = try{ sys.env("ROOM_ID").toLong } catch { case e:Exception => println("ROOM_ID has not been set"); sys.exit(-1)}
     // ポート番号 $ export PORT=8080
-    val port: Int = try{ sys.env("PORT").toInt } catch { case e:Exception => 80 }
-
+    val port: Int = sys.env.getOrElse("PORT", "8080").toInt
+    println(s"run Application: http://localhost:$port/")
 
     val route = {
       path("") {
