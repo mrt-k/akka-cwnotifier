@@ -7,7 +7,7 @@ import akka.http.scaladsl.Http
 import akka.http.scaladsl.server.Directives._
 
 
-object server {
+object Server {
   def main(args: Array[String]) {
     implicit val actorSystem = ActorSystem("hello-system")
     implicit val actorMaterializer = ActorMaterializer()
