@@ -6,7 +6,7 @@ ChatWorkの期限切れタスクを通知するakka-httpサーバー
 
 # Deploy on Heroku
 
-[![Heroku Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/mrt-k/akka-cwnotifier)
+[![Heroku Deploy](https://www.herokucdn.com/deploy/button.png)](https://github.com/mrt-k/akka-cwnotifier/tree/heroku_button)
 
 ---
 
