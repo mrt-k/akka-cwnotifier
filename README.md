@@ -4,7 +4,13 @@ ChatWorkの期限切れタスクを通知するakka-httpサーバー
 
 ---
 
-### Setup
+# Deploy on Heroku
+
+[![Heroku Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/mrt-k/akka-cwnotifier/tree/master)
+
+---
+
+# Setup
 
 環境変数に以下の3つを設定する必要があります。
 
@@ -12,7 +18,7 @@ ChatWorkの期限切れタスクを通知するakka-httpサーバー
 * ROOM_ID - 通知先のroom_idです
 * PORT - 待ち受けるポート番号(デフォルトは8080)
 
-###### ローカルで動かす場合
+### ローカルで動かす場合
 
 ポート8000番で動かしたいとき。
 
@@ -22,7 +28,7 @@ $ export API_KEY="apikey"
 $ export ROOM_ID="room_id"
 ```
 
-###### herokuで動かす場合
+### herokuで動かす場合
 
 herokuの場合はPORTは設定しなくて構いません。
 
@@ -51,3 +57,4 @@ $ cd akka-cwnotifier
 $ heroku create
 $ git push heroku master
 ```
+
