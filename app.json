@@ -4,10 +4,10 @@
   "repository": "https://github.com/mrt-k/akka-cwnotifier",
   "logo": "https://pbs.twimg.com/profile_images/673806204599054337/ANb_c1Yj.png",
   "keywords": ["scala", "akka", "chatwork"],
-  env: {
+  "env": {
    "API_KEY": "",
    "ROOM_ID": "",
-   PORT: 80
+   "PORT": 80
   }
 }
 
