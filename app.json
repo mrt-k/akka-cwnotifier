@@ -1,8 +1,13 @@
 {
   "name": "akka-cwnotifier",
   "description": "The notice task of Chatwork",
-  "repository": https://github.com/mrt-k/akka-cwnotifier,
+  "repository": "https://github.com/mrt-k/akka-cwnotifier",
   "logo": "https://pbs.twimg.com/profile_images/673806204599054337/ANb_c1Yj.png",
-  "keywords": ["scala", akka, chatwork]
+  "keywords": ["scala", "akka", "chatwork"],
+  env: {
+   "API_KEY": "",
+   "ROOM_ID": "",
+   PORT: 80
+  }
 }
 
