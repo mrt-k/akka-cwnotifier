@@ -46,8 +46,8 @@ $ sbt run
 ###### herokuにデプロイする
 
 ```
-$ git add .
-$ git commit -m "initial commit"
+$ git clone https://github.com/mrt-k/akka-cwnotifier.git
+$ cd akka-cwnotifier
 $ heroku create
 $ git push heroku master
 ```
