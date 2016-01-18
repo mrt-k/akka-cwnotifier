@@ -20,11 +20,12 @@ class Notifier {
     val current_time: Long = System.currentTimeMillis / 1000
 
     var sendmsg = "[info][title]期限切れタスク[/title]"
-    (pjson.body, pjson.limit_time).zipped.foreach { (body, limit_time) =>
+    (pjson.body, pjson.limit_time, pjson.message_id).zipped.foreach { (body, limit_time, message_id) =>
       if(current_time > limit_time && limit_time != 0) {
         val dt = new DateTime(limit_time.longValue*1000)
         val limit = dt.toString(DateTimeFormat.fullDate())
-        sendmsg += s"Due: $limit\n$body\n\n"
+        val msg_link = s"https://www.chatwork.com/#!rid$ROOM_ID-$message_id"
+        sendmsg += s"Due: $limit\n$body\n$msg_link\n\n"
       }
     }
     val res = Http("https://api.chatwork.com/v1/rooms/" + ROOM_ID + "/messages").postForm(Seq("body" -> sendmsg)).header("X-ChatWorkToken", API_KEY).asString
