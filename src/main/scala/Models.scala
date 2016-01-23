@@ -19,7 +19,7 @@
     }
 ]
  */
-case class Task(task_id: List[Long],
+case class MyTask(task_id: List[Long],
                 room: List[Room],
                 assigned_by_account: List[AssignedByAccount],
                 message_id: List[Long],
@@ -38,3 +38,16 @@ case class AssignedByAccount(account_id: Long,
                              avatar_image_url: String
                             )
 
+case class Account(account_id: Long,
+                   name: String,
+                   avatar_image_url: String
+                  )
+
+case class RoomTask(task_id: List[Long],
+                    account: List[Account],
+                    assigned_by_account: List[AssignedByAccount],
+                    message_id: List[Long],
+                    body: List[String],
+                    limit_time: List[Long],
+                    status: List[String]
+                   )

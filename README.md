@@ -10,12 +10,14 @@ ChatWorkの期限切れタスクを通知するakka-httpサーバー
 
 ---
 
+
 # Setup
 
 環境変数に以下の3つを設定する必要があります。
 
 * API_KEY - ChatWorkのAPIキーです
-* ROOM_ID - 通知先のroom_idです
+* MY_ROOM_ID - 自分のroom_idです
+* ROOM_IDS - 送信したいroomd_idです。「:」(セミコロン)で区切ります。 ex) $ export ROOM_IDS="12345:67890"
 * PORT - 待ち受けるポート番号(デフォルトは8080)
 
 ### ローカルで動かす場合
@@ -25,8 +27,10 @@ ChatWorkの期限切れタスクを通知するakka-httpサーバー
 ```
 $ export PORT=8000
 $ export API_KEY="apikey"
-$ export ROOM_ID="room_id"
+$ export MY_ROOM_ID="room_id"
+$ export ROOM_IDS="room_id1:room_id2"
 ```
+
 
 ### herokuで動かす場合
 
@@ -34,9 +38,9 @@ herokuの場合はPORTは設定しなくて構いません。
 
 ```
 $ heroku config:set API_KEY="apikey"
-$ heroku config:set ROOM_ID="room_id"
+$ heroku config:set MY_ROOM_ID="room_id"
+$ heroku config:set ROOM_IDS="room_id1:room_id2"
 ```
-
 
 ### Run
 
@@ -49,6 +53,7 @@ http://localhost:8000/ などにアクセスすれば通知が届きます。
 $ sbt run
 ```
 
+
 ###### herokuにデプロイする
 
 ```
@@ -57,4 +62,5 @@ $ cd akka-cwnotifier
 $ heroku create
 $ git push heroku master
 ```
+
 

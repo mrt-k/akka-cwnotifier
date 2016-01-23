@@ -8,8 +8,11 @@
       "API_KEY": {
           "description": "Chatwork API KEY"
       },
-      "ROOM_ID": {
-          "description": "Destination room"
+      "MY_ROOM_ID": {
+          "description": "My room id"
+      },
+      "ROOM_IDS": {
+          "description": "Destination room id. Delimiter is ':'. ex) 12345:67890"
       }
   }
 }
