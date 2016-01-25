@@ -21,7 +21,7 @@ class Notifier {
     // 現在取得をエポックタイムで取得
     val current_time: Long = System.currentTimeMillis / 1000
 
-    var sendmsg = "[info][title]My 期限切れタスク[/title]"
+    var sendmsg = "[info][title]期限切れタスク[/title]"
 
     (my_task_json.body, my_task_json.limit_time, my_task_json.message_id).zipped foreach { (body, limit_time, message_id) =>
       if(current_time > limit_time && limit_time != 0) {
@@ -43,7 +43,7 @@ class Notifier {
       val room_task_json = parse(room_task_response.body).extract[RoomTask]
       val current_time: Long = System.currentTimeMillis / 1000
 
-      var sendmsg = "[info][title]Room 期限切れタスク[/title]"
+      var sendmsg = "[info][title]期限切れタスク[/title]"
 
       ((room_task_json.body, room_task_json.limit_time, room_task_json.message_id).zipped,
         room_task_json.assigned_by_account, room_task_json.account).zipped foreach {
@@ -60,11 +60,11 @@ class Notifier {
             val have_account_id = have_account_info.account_id
             val have_account_name = have_account_info.name
 
-            sendmsg += s"Due: $limit\n$body\n$msg_link\n\n[To:$create_account_id]$create_account_name\n[To:$have_account_id]$have_account_name\n"
+            sendmsg += s"Due: $limit\n[To:$create_account_id]$create_account_name\n[To:$have_account_id]$have_account_name\n\n$body\n$msg_link\n\n"
           }
-          val res = Http("https://api.chatwork.com/v1/rooms/" + roomid + "/messages").postForm(Seq("body" -> sendmsg)).header("X-ChatWorkToken", API_KEY).asString
 
       }
+      val res = Http("https://api.chatwork.com/v1/rooms/" + roomid + "/messages").postForm(Seq("body" -> sendmsg)).header("X-ChatWorkToken", API_KEY).asString
     }
   }
 }
