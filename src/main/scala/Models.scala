@@ -19,7 +19,19 @@
     }
 ]
  */
-case class MyTask(task_id: List[Long],
+
+// 自身のタスクが1つのみのケース
+case class MyTask(task_id: Long,
+                  room: Room,
+                  assigned_by_account: AssignedByAccount,
+                  message_id: Long,
+                  body: String,
+                  limit_time: Long,
+                  status: String
+                 )
+
+// 自身のタスクが複数のケース
+case class MyTasks(task_id: List[Long],
                 room: List[Room],
                 assigned_by_account: List[AssignedByAccount],
                 message_id: List[Long],
@@ -27,6 +39,38 @@ case class MyTask(task_id: List[Long],
                 limit_time: List[Long],
                 status: List[String]
                )
+
+// 部屋のタスクが1つのみのケース
+case class RoomTask(task_id: Long,
+                    account: Account,
+                    assigned_by_account: AssignedByAccount,
+                    message_id: Long,
+                    body: String,
+                    limit_time: Long,
+                    status: String
+                   )
+
+// 部屋のタスクが複数のケース
+case class RoomTasks(task_id: List[Long],
+                    account: List[Account],
+                    assigned_by_account: List[AssignedByAccount],
+                    message_id: List[Long],
+                    body: List[String],
+                    limit_time: List[Long],
+                    status: List[String]
+                   )
+
+case class MsgMyRoom(message_id: List[Long],
+                     body: List[String],
+                     limit_time: List[Long]
+                    )
+
+case class MsgRoom(message_id: List[Long],
+                   body: List[String],
+                   limit_time: List[Long],
+                   account: List[Account],
+                   assigned_by_account: List[AssignedByAccount]
+                  )
 
 case class Room(room_id: Long,
                 name: String,
@@ -43,11 +87,3 @@ case class Account(account_id: Long,
                    avatar_image_url: String
                   )
 
-case class RoomTask(task_id: List[Long],
-                    account: List[Account],
-                    assigned_by_account: List[AssignedByAccount],
-                    message_id: List[Long],
-                    body: List[String],
-                    limit_time: List[Long],
-                    status: List[String]
-                   )
